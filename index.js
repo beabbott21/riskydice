@@ -1,14 +1,32 @@
-var express = require('express');
-var app = express();
+var http, director, cool, bot, router, server, port;
 
-app.set('port', (process.env.PORT || 5000));
+http        = require('http');
+director    = require('director');
+bot         = require('./bot.js');
 
-app.use(express.static(__dirname + '/public'));
-
-app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to Risky Bot'
-}));
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+router = new director.http.Router({
+  '/' : {
+    post: bot.respond,
+    get: ping
+  }
 });
+
+server = http.createServer(function (req, res) {
+  req.chunks = [];
+  req.on('data', function (chunk) {
+    req.chunks.push(chunk.toString());
+  });
+
+  router.dispatch(req, res, function(err) {
+    res.writeHead(err.status, {"Content-Type": "text/plain"});
+    res.end(err.message);
+  });
+});
+
+port = Number(process.env.PORT || 5000);
+server.listen(port);
+
+function ping() {
+  this.res.writeHead(200);
+  this.res.end("Hey, I'm Cool Guy.");
+}

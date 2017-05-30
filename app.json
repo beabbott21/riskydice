@@ -1,5 +1,6 @@
 {
-  "name": "Risky Dice",
+  "name": "Risky Dice Bot",
   "description": "A dice rolling bot for groupme",
-  "keywords": ["node", "express", "heroku"]
+  "repository": "https://github.com/beabbott21/riskydice",
+  "keywords": []
 }
