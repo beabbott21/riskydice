@@ -1,0 +1,5 @@
+{
+  "name": "Risky Dice",
+  "description": "A dice rolling bot for groupme",
+  "keywords": ["node", "express", "heroku"]
+}
