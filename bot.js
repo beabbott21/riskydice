@@ -20,7 +20,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = "HI";//Math.floor(Math.random() * 6) + 1;
+  botResponse = Math.floor(Math.random() * 6) + 1;
 
   options = {
     hostname: 'api.groupme.com',
@@ -30,13 +30,13 @@ function postMessage() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : "botResponse"
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
-    console.log(res)
+    console.log(res.statusMessage)
       if(res.statusCode == 202) {
         //neat
       } else {
