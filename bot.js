@@ -29,7 +29,7 @@ function postMessage() {
   };
 
   body = {
-    "bot_id" : "" + botID,
+    "bot_id" : botID.replace(" ", ""),
     "text" : botResponse
   };
   console.log('body:' + body.bot_id);
