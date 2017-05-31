@@ -30,7 +30,7 @@ function postMessage() {
 
   body = {
     "bot_id" : "cb38e7e965b10be3845234558a",
-    "text" : "botResponse"
+    "text" : botResponse
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
