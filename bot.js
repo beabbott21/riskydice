@@ -20,7 +20,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = Math.floor(Math.random() * 6) + 1;
+  botResponse = "" + Math.floor(Math.random() * 6) + 1;
 
   options = {
     hostname: 'api.groupme.com',
