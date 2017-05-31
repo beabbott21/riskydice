@@ -29,7 +29,7 @@ function postMessage() {
   };
 
   body = {
-    "bot_id" : "cb38e7e965b10be3845234558a",
+    "bot_id" : "33c7068ef65c4d1f66b3219279",
     "text" : botResponse
   };
   console.log('sending ' + botResponse + ' to ' + botID);
