@@ -28,5 +28,5 @@ server.listen(port);
 
 function ping() {
   this.res.writeHead(200);
-  this.res.end("Hey, I'm a dice rolling bot.");
+  this.res.end("HI, I'm the Risky Business Die. LFG");
 }

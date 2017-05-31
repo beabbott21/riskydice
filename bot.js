@@ -29,10 +29,9 @@ function postMessage() {
   };
 
   body = {
-    "bot_id" : botID.replace(" ", ""),
+    "bot_id" : "cb38e7e965b10be3845234558a",
     "text" : botResponse
   };
-  console.log('body:' + body.bot_id);
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
