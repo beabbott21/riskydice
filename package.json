@@ -16,6 +16,9 @@
     "type": "git",
     "url": "https://github.com/beabbott21/riskydice"
   },
-  "keywords": ["node", "heroku"],
+  "keywords": [
+    "node",
+    "heroku"
+  ],
   "license": "ISC"
 }
