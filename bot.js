@@ -32,7 +32,7 @@ function postMessage() {
     "bot_id" : "" + botID,
     "text" : botResponse
   };
-  console.log('body:' + body);
+  console.log('body:' + body.bot_id);
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
