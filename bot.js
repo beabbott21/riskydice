@@ -29,7 +29,7 @@ function postMessage() {
   };
 
   body = {
-    "bot_id" : botID,
+    "bot_id" : "cb38e7e965b10be3845234558a",
     "text" : "botResponse"
   };
 
