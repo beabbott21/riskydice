@@ -1,22 +1,21 @@
 var HTTPS = require('https');
 
+function getID (group) {
+  var kv = {
+    process.env.RISKY_GROUP: process.env.RISKY_ID,
+    process.env.VEGAS_GROUP: process.env.VEGAS_ID,
+    process.env.TEST_GROUP: process.env.TEST_ID,
+    'default': process.env.TEST_ID
+  };
+  return kv[group] || kv['default'];
+}
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /\/roll/;
   var botID;
 
-  switch(request.group_id) {
-    case process.env.RISKY_GROUP:
-    console.log("risky");
-      botID = process.env.RISKY_ID;
-    case process.env.VEGAS_GROUP:
-    console.log("vegas");
-      botID = process.env.VEGAS_ID;
-    default:
-      botID = process.env.TEST_ID;
-  }
-  console.log(botID);
+  console.log(request.group_id, getID(request.group_id));
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(botID);
