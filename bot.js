@@ -8,8 +8,10 @@ function respond() {
 
   switch(request.group_id) {
     case process.env.RISKY_GROUP:
+    console.log("risky");
       botID = process.env.RISKY_ID;
     case process.env.VEGAS_GROUP:
+    console.log("vegas");
       botID = process.env.VEGAS_ID;
     default:
       botID = process.env.TEST_ID;
