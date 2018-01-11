@@ -4,10 +4,17 @@ var HTTPS = require('https');
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /\/roll/;
-  var botID = process.env.BOT_ID;
+  var botID;
 
-  console.log(request)
-
+  switch(request.group_id) {
+    case process.env.RISKY_GROUP:
+      botID = process.env.RISKY_ID;
+    case process.env.VEGAS_GROUP:
+      botID = process.env.VEGAS_ID;
+    default:
+      botID = process.env.TEST_ID;
+  }
+  console.log(botID);
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(botID);
